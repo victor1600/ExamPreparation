@@ -21,6 +21,11 @@ class Escuela(CommonFields):
     facultad = models.ForeignKey(Facultad, on_delete=models.PROTECT)
 
 
+class Teacher(CommonFields):
+    escuela = models.ForeignKey(Escuela, on_delete=models.PROTECT)
+    pass
+
+
 class Ciclo(CommonFields):
     pass
 
@@ -28,3 +33,4 @@ class Ciclo(CommonFields):
 class Materia(CommonFields):
     escuela = models.ForeignKey(Escuela, on_delete=models.PROTECT)
     ciclo = models.ForeignKey(Ciclo, on_delete=models.PROTECT)
+    teachers = models.ManyToManyField(Teacher)
