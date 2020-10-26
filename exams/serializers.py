@@ -5,7 +5,8 @@ from .models import Facultad, Escuela, Ciclo, Materia
 class FacultadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Facultad
-        fields = '__all__'
+        # Avoid getting the status (activo, inactivo) when fetching data
+        fields = ['id', 'nombre']
 
 
 class EscuelaSerializer(serializers.ModelSerializer):
